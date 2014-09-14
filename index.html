@@ -9,15 +9,13 @@
         <script src=""></script>
         <script src=""></script>
         <script src="js/main.js"></script>
+        <link rel="stylesheet" href="/css/perfect.css">
     </head>
     <body>
-        {{name}}
-        <div ng-controller="MyController">
-            {{person.name}}
-            <videogular vg-theme="config.theme.url">
+        <div id="background" ng-controller="MyController">
+            <videogular vg-loop="true" vg-autoPlay="true" vg-theme="config.theme.url">
                 <vg-video vg-src="config.sources"></vg-video>
             </videogular>
-            {{config}}
         </div>
     </body>
 </html>
