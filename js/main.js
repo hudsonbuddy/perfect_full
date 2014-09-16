@@ -7,7 +7,7 @@ app.run(function($rootScope) {
 
 //This is the controller for the app
 
-app.controller('perfectController', function($scope, $sce) {
+app.controller('perfectController', function($scope, $sce, $http) {
 
     $scope.person = 'hudson';
     $scope.currentTime = 0;
@@ -96,6 +96,18 @@ app.controller('perfectController', function($scope, $sce) {
             ]
         }
     ];
+
+    $scope.makeRequest = function() {
+        $http({
+            method: 'JSONP',
+            url: 'https://api.github.com/events?callback=JSON_CALLBACK'
+            })
+        .success(function(data, status, headers, config) {
+            $scope.beers = data;
+            })
+        .error(function(data, status, headers, config) {
+            });
+    };
 
 });
 
