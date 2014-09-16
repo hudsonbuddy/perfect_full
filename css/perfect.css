@@ -1,3 +1,12 @@
+@font-face{
+    font-family: Adobe Garamond Pro;
+    src: url('/fonts/AdobeGP.ttf');
+}
+
+.main {
+}
+
+
 body {
     margin: 0px;
 }
@@ -10,4 +19,46 @@ video{
     position: fixed;
 }
 
+footer {
+    
+    font-family: "Adobe Garamond Pro" "Times New Roman" serif;
+    display: block;
+    border-top: 1px solid #eeeeed;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background: #fff;
+    outline: 5px solid rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+
+footer p {
+    float: left;
+    color: #999996;
+    top: 0;
+    padding-left: 20px;
+}
+
+footer ul {
+    float: right;
+    list-style: none;
+    padding-right: 20px;
+}
+
+footer ul li {
+    float: left;
+    padding: 0 0 0 20px;
+}
+
+footer ul li a {
+    font-weight: normal;
+    color: #999996;
+    text-decoration: none;
+
+}
+
+footer ul li a:hover {
+    color: #333332;
+}
 

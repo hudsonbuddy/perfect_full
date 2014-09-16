@@ -390,7 +390,7 @@ angular.module("com.2fdevs.videogular", ["ngSanitize"])
 
 				this.onStartPlaying = function (event) {
 					// Chrome fix: Chrome needs to update the video tag size or it will show a white screen
-
+                    //width-- and width++ I removed here HUDSON
 					$scope.API.isBuffering = false;
 				};
 
