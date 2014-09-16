@@ -7,22 +7,96 @@ app.run(function($rootScope) {
 
 //This is the controller for the app
 
-app.controller('MyController', function($scope, $sce) {
-    $scope.person = {
-        name : "Hudson Duan"
-    };
-    $scope.config = {
-        sources: [
+app.controller('perfectController', function($scope, $sce) {
 
-            {src: $sce.trustAsResourceUrl("http://www.hudsonduan.com/img/linlin.mp4"), type: "video/mp4"},
-            {src: $sce.trustAsResourceUrl("videogular.webm"), type: "video/webm"},
-            {src: $sce.trustAsResourceUrl("videogular.ogg"), type: "video/ogg"}
-        ],
+    $scope.person = 'hudson';
+    $scope.currentTime = 0;
+    $scope.totalTime = 0;
+    $scope.state = null;
+    $scope.volume = 0;
+    $scope.isCompleted = false;
+    $scope.API = null;
+    $scope.currentVideo = 0;
+    $scope.muted = 'true';
+
+    $scope.onPlayerReady = function(API) {
+        $scope.API = API;
+        $scope.isCompleted = false;
+        $scope.API.setVolume(0);
+        console.log('working onplayerready');
+    };
+
+    $scope.onCompleteVideo = function() {
+        $scope.isCompleted = true;
+
+        $scope.currentVideo++;
+
+        if ($scope.currentVideo >= $scope.videos.length) $scope.currentVideo = 0;
+
+        $scope.setVideo($scope.currentVideo);
+        console.log('working oncompletevideo');
+    };
+
+    $scope.setVideo = function(index) {
+        $scope.currentVideo = index;
+        $scope.config.sources = $scope.videos[index].sources;
+        $scope.API.seekTime(0, false);
+        $scope.API.play();
+        console.log('working setVideo');
+    };
+
+    $scope.toggleSound = function(){
+
+        if($scope.muted == 'true'){
+            $scope.API.setVolume(1);
+            $scope.muted = 'false';
+        }else if ($scope.muted == 'false'){
+            $scope.API.setVolume(0);
+            $scope.muted = 'true';
+        }
+
+        console.log('toggling sound');
+           
+    };
+    
+    $scope.nextChapter = function(){
+        $scope.currentVideo++;
+        if ($scope.currentVideo < $scope.videos.length){
+            $scope.setVideo($scope.currentVideo);
+            console.log('next chapter');
+        }else {
+            console.log('no more chapters');
+        }
+
+    };
+
+    $scope.startOver = function(){
+
+        $scope.setVideo(0);
+         console.log('starting over');       
+
+    };
+    
+    
+    $scope.config = {
         theme: {
             url: "/bower_components/videogular-themes-default/videogular.css"
         }
     };
-    
+
+    $scope.videos = [
+        {
+            sources: [
+                {src: $sce.trustAsResourceUrl("http://www.hudsonduan.com/img/linlin.mp4"), type: "video/mp4"},
+            ]
+        },
+        {
+            sources: [
+                {src: $sce.trustAsResourceUrl("http://www.hudsonduan.com/img/linlin.mp4"), type: "video/mp4"},
+            ]
+        }
+    ];
+
 });
 
 

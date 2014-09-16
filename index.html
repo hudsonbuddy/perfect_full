@@ -1,4 +1,4 @@
-<html ng-app="perfect">
+<html ng-app="perfect" ng-controller="perfectController">
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
 
@@ -12,9 +12,9 @@
         <link rel="stylesheet" href="/css/perfect.css">
     </head>
     <body>
-        <div id="background" ng-controller="MyController">
-            <videogular vg-loop="true" vg-autoPlay="true" vg-theme="config.theme.url">
-                <vg-video vg-src="config.sources"></vg-video>
+        <div id="background" >
+            <videogular vg-loop="false" vg-autoPlay="true" vg-player-ready="onPlayerReady" vg-update-state="onUpdateState" vg-complete="onCompleteVideo" vg-theme="config.theme.url">
+                <vg-video vg-src="videos[0].sources"></vg-video>
             </videogular>
         </div>
     </body>
@@ -22,9 +22,9 @@
         <p class="hide-mobile">&copy; 2014</p>
         <ul>
             <li><a href="https://twitter.com/_perfectapp">@_perfectapp</a></li>
-            <li><a href="#">Sound</a></li>
+            <li><a href="#" ng-click="toggleSound()">Sound</a></li>
+            <li><a href="#" ng-click="nextChapter()">Next Chapter</a></li>
+            <li><a href="#" ng-click="startOver()">Start Over</a></li>
         </ul>
-
     </footer>
-
 </html>
