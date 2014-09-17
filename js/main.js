@@ -18,6 +18,7 @@ app.controller('perfectController', function($scope, $sce, $http) {
     $scope.API = null;
     $scope.currentVideo = 0;
     $scope.muted = 'true';
+    $scope.soundState = 'Sound';
 
     $scope.onPlayerReady = function(API) {
         $scope.API = API;
@@ -50,9 +51,11 @@ app.controller('perfectController', function($scope, $sce, $http) {
         if($scope.muted == 'true'){
             $scope.API.setVolume(1);
             $scope.muted = 'false';
+            $scope.soundState = 'Mute';
         }else if ($scope.muted == 'false'){
             $scope.API.setVolume(0);
             $scope.muted = 'true';
+            $scope.soundState = 'Sound';
         }
 
         console.log('toggling sound');
