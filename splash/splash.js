@@ -2,7 +2,6 @@ var app = angular.module('splash', ['ngSanitize', "com.2fdevs.videogular", 'ngRo
 
 //This is the main method of the app
 app.run(function($rootScope) {
-      $rootScope.name = "Hudson";
 });
 
 //This sets up the routing for the splash page blurb and the FAQ
@@ -63,31 +62,11 @@ app.controller('splashController', function($scope, $sce, $http, $location) {
         }
     };
 
-    $scope.videos = [
-        {
+    $scope.videos = {
             sources: [
                 {src: $sce.trustAsResourceUrl("http://www.hudsonduan.com/img/linlin.mp4"), type: "video/mp4"},
             ]
-        },
-        {
-            sources: [
-                {src: $sce.trustAsResourceUrl("http://www.hudsonduan.com/img/linlin.mp4"), type: "video/mp4"},
-            ]
-        }
-    ];
-
-    $scope.makeRequest = function() {
-        $http({
-            method: 'JSONP',
-            url: 'https://api.github.com/events?callback=JSON_CALLBACK'
-            })
-        .success(function(data, status, headers, config) {
-            $scope.beers = data;
-            })
-        .error(function(data, status, headers, config) {
-            });
-    };
-
+        };
 });
 
 

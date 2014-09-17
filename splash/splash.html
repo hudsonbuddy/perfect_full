@@ -13,8 +13,8 @@
     </head>
     <body>
         <div id="background" >
-            <videogular vg-loop="false" vg-autoPlay="false" vg-player-ready="onPlayerReady" vg-update-state="onUpdateState" vg-complete="onCompleteVideo" vg-theme="config.theme.url">
-                <vg-video vg-src="videos[0].sources"></vg-video>
+            <videogular vg-loop="true" vg-autoPlay="true" vg-player-ready="onPlayerReady" vg-update-state="onUpdateState" vg-complete="onCompleteVideo" vg-theme="config.theme.url">
+                <vg-video vg-src="videos.sources"></vg-video>
             </videogular>
         </div>
        <div ng-view></div> 
