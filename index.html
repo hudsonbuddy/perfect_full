@@ -1,8 +1,8 @@
 <html ng-app="perfect" ng-controller="perfectController">
     <head>
+        <title>Perfect</title>
+        <base href="/">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
-
-
         <script src="/bower_components/angular-route/angular-route.js"></script>
         <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="/bower_components/videogular/videogular.js"></script>
@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="background" >
-            <videogular vg-loop="false" vg-autoPlay="true" vg-player-ready="onPlayerReady" vg-update-state="onUpdateState" vg-complete="onCompleteVideo" vg-theme="config.theme.url">
+            <videogular vg-loop="false" vg-autoPlay="false" vg-player-ready="onPlayerReady" vg-update-state="onUpdateState" vg-complete="onCompleteVideo" vg-theme="config.theme.url">
                 <vg-video vg-src="videos[0].sources"></vg-video>
             </videogular>
         </div>
@@ -22,10 +22,10 @@
         <p class="hide-mobile">&copy; 2014</p>
         <ul>
             <li><a href="https://twitter.com/_perfectapp">@_perfectapp</a></li>
-            <li><a href="#" ng-click="toggleSound()">{{soundState}}</a></li>
-            <li><a href="#" ng-click="nextChapter()">Next Chapter</a></li>
-            <li><a href="#" ng-click="startOver()">Start Over</a></li>
-            <li><a href="#" ng-click="makeRequest()">Start Over</a></li>
+            <li><a ng-click="toggleSound()">{{soundState}}</a></li>
+            <li><a ng-click="nextChapter()">Next Chapter</a></li>
+            <li><a ng-click="startOver()">Start Over</a></li>
+            <li><a ng-click="makeRequest()">Start Over</a></li>
         </ul>
     </footer>
 </html>

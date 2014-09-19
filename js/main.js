@@ -1,13 +1,20 @@
-var app = angular.module('perfect', ['ngSanitize', "com.2fdevs.videogular"]);
+var app = angular.module('perfect', ['ngSanitize', "com.2fdevs.videogular", 'ngRoute']);
 
 //This is the main method of the app
 app.run(function($rootScope) {
       $rootScope.name = "Hudson";
 });
 
+app.config(["$routeProvider", function($routeProvider){
+
+    $routeProvider.otherwise({redirectTo: '/'});
+
+
+}]);
+
 //This is the controller for the app
 
-app.controller('perfectController', function($scope, $sce, $http) {
+app.controller('perfectController', function($scope, $sce, $http, $routeParams) {
 
     $scope.person = 'hudson';
     $scope.currentTime = 0;
