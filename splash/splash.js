@@ -17,6 +17,11 @@ app.config(["$routeProvider", function($routeProvider){
 
 
 }]);
+app.config(['$locationProvider', function($locationProvider){
+
+    $locationProvider.html5Mode(true);
+
+}]);
 
 //This is the controller for the app
 
